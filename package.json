@@ -1,0 +1,72 @@
+{
+  "name": "omni2mp3-web",
+  "version": "1.0.0",
+  "ext_build": 0,
+  "updateInfo": "新增多文件、文件夹导入与 ZIP 批量下载。",
+  "license": "MIT",
+  "description": "Convert locally downloaded music files to MP3 entirely in the browser.",
+  "packageManager": "pnpm@11.25.0",
+  "homepage": "https://magiicccc.github.io/music-batch-unlock/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Magiicccc/music-batch-unlock.git"
+  },
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build:all": "./scripts/build-and-package.sh --all",
+    "test": "jest",
+    "pretty": "prettier --write src/{**/*,*}.{js,ts,jsx,tsx,vue}",
+    "pretty:check": "prettier --check src/{**/*,*}.{js,ts,jsx,tsx,vue}",
+    "make-extension": "node ./scripts/make-extension.js"
+  },
+  "dependencies": {
+    "@ffmpeg/ffmpeg": "0.12.15",
+    "@ffmpeg/core": "0.12.10",
+    "@babel/preset-typescript": "^7.16.5",
+    "@xhacker/kgmwasm": "^1.0.0",
+    "@xhacker/qmcwasm": "^1.0.0",
+    "base64-js": "^1.5.1",
+    "browser-id3-writer": "^4.4.0",
+    "core-js": "^3.16.0",
+    "crypto-js": "^4.1.1",
+    "element-ui": "^2.15.5",
+    "iconv-lite": "^0.6.3",
+    "jimp": "^0.16.1",
+    "jszip": "^3.10.1",
+    "metaflac-js": "^1.0.5",
+    "music-metadata": "7.9.0",
+    "music-metadata-browser": "2.2.7",
+    "register-service-worker": "^1.7.2",
+    "threads": "^1.6.5",
+    "tslib": "^2.8.1",
+    "vue": "^2.6.14"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.0.2",
+    "@types/jest": "^27.0.3",
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-plugin-pwa": "^4.5.13",
+    "@vue/cli-plugin-typescript": "^4.5.13",
+    "@vue/cli-service": "^4.5.13",
+    "babel-plugin-component": "^1.1.1",
+    "jest": "^27.4.5",
+    "patch-package": "^6.4.7",
+    "prettier": "2.5.1",
+    "sass": "^1.38.1",
+    "sass-loader": "^10.2.0",
+    "semver": "^7.3.5",
+    "threads-plugin": "^1.4.0",
+    "typescript": "^4.5.4",
+    "vue-cli-plugin-element": "^1.0.1",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "overrides": {
+    "@babel/traverse": "^7.23.2",
+    "jpeg-js": "^0.4.4",
+    "json5@^2": "^2.2.3",
+    "minimist@^1": "^1.2.8",
+    "semver@^6": "^6.3.1"
+  }
+}
