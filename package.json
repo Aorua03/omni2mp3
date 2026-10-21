@@ -6,10 +6,10 @@
   "license": "MIT",
   "description": "Convert locally downloaded music files to MP3 entirely in the browser.",
   "packageManager": "pnpm@11.25.0",
-  "homepage": "https://magiicccc.github.io/music-batch-unlock/",
+  "homepage": "https://aorua03.github.io/omni2mp3/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Magiicccc/music-batch-unlock.git"
+    "url": "https://github.com/Aorua03/omni2mp3.git"
   },
   "private": true,
   "scripts": {
@@ -24,7 +24,6 @@
   "dependencies": {
     "@ffmpeg/ffmpeg": "0.12.15",
     "@ffmpeg/core": "0.12.10",
-    "@babel/preset-typescript": "^7.16.5",
     "@xhacker/kgmwasm": "^1.0.0",
     "@xhacker/qmcwasm": "^1.0.0",
     "base64-js": "^1.5.1",
