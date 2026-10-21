@@ -4,6 +4,7 @@
       @batch-start="handleBatchStart"
       @error="showFail"
       @file-finish="handleFileFinish"
+      @limit-exceeded="showLimitExceeded"
       @rejected="showRejected"
       @success="showSuccess"
     />
@@ -196,6 +197,13 @@ export default {
         duration: 4200,
       });
     },
+    showLimitExceeded(count) {
+      this.$notify.warning({
+        title: '单次最多添加 5 首',
+        message: `本次仅前 5 首加入转换队列，其余 ${count} 首未添加。`,
+        duration: 5000,
+      });
+    },
     changePlaying(url) {
       this.playing_url = url;
       this.playing_auto = true;
@@ -359,6 +367,7 @@ export default {
   align-items: end;
   justify-content: space-between;
   gap: 28px;
+  text-align: left;
 }
 
 .section-kicker {

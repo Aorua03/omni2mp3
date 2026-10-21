@@ -112,6 +112,7 @@ const SUPPORTED_EXTENSIONS = [
   'ape',
   'opus',
 ];
+const MAX_FILES_PER_BATCH = 5;
 
 export default {
   name: 'FileSelector',
@@ -170,25 +171,29 @@ export default {
     addFiles(files, importMethod = 'picker') {
       const accepted = files.filter((file) => SUPPORTED_EXTENSIONS.includes(this.extensionOf(file.name)));
       const rejected = files.filter((file) => !SUPPORTED_EXTENSIONS.includes(this.extensionOf(file.name)));
+      const queued = accepted.slice(0, MAX_FILES_PER_BATCH);
+      const ignoredCount = accepted.length - queued.length;
       const importId = createAnalyticsId();
       track('files_imported', {
         import_id: importId,
         import_method: importMethod,
-        accepted_count: accepted.length,
+        accepted_count: queued.length,
         rejected_count: rejected.length,
       });
       if (rejected.length) this.$emit('rejected', rejected);
       if (!accepted.length) return;
+
+      if (ignoredCount > 0) this.$emit('limit-exceeded', ignoredCount);
 
       if (!this.busy) {
         this.task_all = 0;
         this.task_finished = 0;
         this.task_items = [];
       }
-      this.task_all += accepted.length;
+      this.task_all += queued.length;
       const config = storage.getAll();
-      accepted.forEach((raw) => this.enqueue(raw, config, importId));
-      this.$emit('batch-start', accepted.length);
+      queued.forEach((raw) => this.enqueue(raw, config, importId));
+      this.$emit('batch-start', queued.length);
     },
     enqueue(raw, config, importId) {
       const fileId = createAnalyticsId();
