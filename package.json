@@ -24,6 +24,7 @@
   "dependencies": {
     "@ffmpeg/ffmpeg": "0.12.15",
     "@ffmpeg/core": "0.12.10",
+    "@babel/preset-typescript": "^7.16.5",
     "@xhacker/kgmwasm": "^1.0.0",
     "@xhacker/qmcwasm": "^1.0.0",
     "base64-js": "^1.5.1",
