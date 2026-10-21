@@ -184,7 +184,7 @@ main {
   margin: 0;
   color: var(--ink);
   font-family: 'STKaiti', 'KaiTi', 'Microsoft YaHei', serif;
-  font-size: clamp(58px, 9.2vw, 126px);
+  font-size: clamp(48px, 7vw, 92px);
   font-weight: 700;
   line-height: 0.91;
   letter-spacing: -0.07em;
@@ -413,7 +413,7 @@ main {
   }
 
   .hero h1 {
-    font-size: clamp(54px, 17vw, 94px);
+    font-size: clamp(40px, 12vw, 70px);
   }
 
   .hero__aside {
@@ -431,21 +431,75 @@ main {
 }
 
 @media (max-width: 520px) {
-  .privacy-pill {
-    max-width: 150px;
-    padding: 7px 10px;
-    font-size: 10px;
+  #app {
+    width: calc(100% - 24px);
+    padding-top: 10px;
+    padding-bottom: 28px;
   }
 
-  .brand > span:last-child {
-    display: none;
+  main {
+    gap: 16px;
+  }
+
+  .app-header {
+    gap: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .brand {
+    gap: 7px;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+  }
+
+  .brand__disc {
+    width: 26px;
+    height: 26px;
+    box-shadow: inset 0 0 0 6px var(--coral);
+  }
+
+  .brand__disc::after {
+    inset: 10px;
+  }
+
+  .brand__disc i {
+    top: 5px;
+    right: -6px;
+    width: 11px;
+    height: 15px;
+  }
+
+  .privacy-pill {
+    max-width: 178px;
+    padding: 6px 8px;
+    font-size: 9px;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
   }
 
   .hero {
-    padding-top: 62px;
+    gap: 12px;
+    padding-top: 30px;
+    padding-bottom: 4px;
+    text-align: left;
+  }
+
+  .hero__eyebrow {
+    margin-bottom: 0;
+    font-size: 9px;
+    letter-spacing: 0.1em;
   }
 
   .hero h1 {
-    font-size: clamp(48px, 18vw, 78px);
+    font-size: clamp(32px, 9vw, 40px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .app-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 12px;
   }
 }

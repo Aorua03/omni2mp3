@@ -20,7 +20,7 @@
         <span></span>
       </div>
       <div class="drop-zone__copy">
-        <p class="drop-zone__kicker">选择下载的音乐文件</p>
+        <p class="drop-zone__kicker">建议单次添加歌曲不超过5首</p>
         <h2 id="batch-import-title">建议少量多次进行转换，减少设备内存占用</h2>
         <p>可在音乐软件中查看音乐文件的存储位置</p>
       </div>
@@ -436,7 +436,7 @@ export default {
   margin: 0;
   color: #142e37;
   font-family: 'STKaiti', 'KaiTi', 'Microsoft YaHei', serif;
-  font-size: clamp(38px, 6vw, 66px);
+  font-size: clamp(30px, 4vw, 48px);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.04em;
@@ -596,8 +596,11 @@ export default {
 @media (max-width: 760px) {
   .drop-zone {
     grid-template-columns: 1fr;
-    align-items: end;
-    padding: 68px 22px 72px;
+    align-items: center;
+    gap: 16px;
+    min-height: 0;
+    padding: 48px 20px 62px;
+    border-radius: 20px;
   }
 
   .drop-zone__actions {
@@ -612,13 +615,56 @@ export default {
   }
 
   .drop-zone__mark {
-    width: 150px;
-    height: 150px;
+    top: -44px;
+    right: -44px;
+    width: 120px;
+    height: 120px;
   }
 
   .drop-zone__mark span {
-    left: 32px;
-    width: 58px;
+    left: 25px;
+    width: 48px;
+    height: 8px;
+  }
+
+  .drop-zone__mark span:nth-child(1) {
+    top: 45px;
+  }
+  .drop-zone__mark span:nth-child(2) {
+    top: 66px;
+  }
+  .drop-zone__mark span:nth-child(3) {
+    top: 87px;
+  }
+
+  .drop-zone__index {
+    top: 18px;
+    left: 20px;
+    font-size: 10px;
+  }
+
+  .drop-zone__copy {
+    max-width: 100%;
+  }
+
+  .drop-zone__kicker {
+    max-width: calc(100% - 54px);
+    margin-bottom: 8px;
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+  }
+
+  .drop-zone h2 {
+    font-size: clamp(20px, 5.8vw, 26px);
+    line-height: 1.4;
+    letter-spacing: 0;
+  }
+
+  .drop-zone__copy > p:last-child {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.55;
   }
 
   .batch-progress__header {
@@ -632,6 +678,37 @@ export default {
 
   .task-row__size {
     display: none;
+  }
+
+  .action-button {
+    min-height: 44px;
+  }
+
+  .format-strip {
+    left: 20px;
+    bottom: 18px;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  .format-strip span {
+    padding: 5px 7px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 380px) {
+  .drop-zone {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .drop-zone__index {
+    left: 16px;
+  }
+
+  .drop-zone__copy > p:last-child {
+    font-size: 12px;
   }
 }
 </style>

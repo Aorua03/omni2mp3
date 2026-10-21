@@ -8,7 +8,7 @@
         <span class="brand__disc"><i></i></span>
         <span>Omni2MP3</span>
       </a>
-      <span class="privacy-pill">音频本地处理 · 匿名使用统计</span>
+      <span class="privacy-pill">音频本地处理</span>
     </header>
 
     <main>

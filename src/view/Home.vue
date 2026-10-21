@@ -8,12 +8,17 @@
       @success="showSuccess"
     />
 
+    <section v-if="!tableData.length" class="empty-result">
+      <span>02</span>
+      <p>导入音乐后，转换完成的 MP3 会在这里集中出现。</p>
+    </section>
+
     <section class="result-console" aria-labelledby="result-console-title">
       <div class="section-index">02 / 输出</div>
       <div class="result-console__heading">
         <div>
-          <p class="section-kicker">MP3 输出</p>
-          <h2 id="result-console-title">打包下载 MP3</h2>
+          <p class="section-kicker">全部转换完成后再下载</p>
+          <h2 id="result-console-title">多次转换，一次下载</h2>
         </div>
         <div class="metric-grid">
           <div class="metric">
@@ -90,11 +95,6 @@
         @edit="editFile"
         @play="changePlaying"
       />
-    </section>
-
-    <section v-else class="empty-result">
-      <span>02</span>
-      <p>导入音乐后，转换完成的 MP3 会在这里集中出现。</p>
     </section>
 
     <edit-dialog
@@ -373,7 +373,7 @@ export default {
   margin: 0;
   color: #142e37;
   font-family: 'STKaiti', 'KaiTi', 'Microsoft YaHei', serif;
-  font-size: clamp(28px, 4vw, 44px);
+  font-size: clamp(22px, 3.2vw, 34px);
   line-height: 1.15;
 }
 
@@ -506,7 +506,7 @@ audio {
 }
 
 .empty-result {
-  min-height: 120px;
+  min-height: 82px;
   border: 1px dashed rgba(20, 38, 46, 0.22);
   border-radius: 22px;
   display: flex;
@@ -515,6 +515,7 @@ audio {
   gap: 18px;
   color: #758489;
   background: rgba(255, 255, 255, 0.36);
+  padding: 16px 22px;
 }
 
 .empty-result span {
@@ -543,10 +544,106 @@ audio {
 }
 
 @media (max-width: 560px) {
+  .home-view {
+    gap: 14px;
+  }
+
   .result-console,
   .result-list {
+    border-radius: 18px;
     padding-right: 18px;
     padding-left: 18px;
+  }
+
+  .result-console {
+    padding-top: 46px;
+    padding-bottom: 22px;
+  }
+
+  .section-index {
+    top: 18px;
+    left: 18px;
+    font-size: 10px;
+  }
+
+  .result-console h2,
+  .result-list h2 {
+    font-size: clamp(20px, 5.8vw, 24px);
+  }
+
+  .result-console__heading {
+    gap: 16px;
+  }
+
+  .metric-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .metric {
+    min-width: 0;
+    padding: 10px 8px;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .metric strong {
+    font-size: 20px;
+  }
+
+  .control-grid {
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .control-group {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .control-label {
+    margin-bottom: 10px;
+  }
+
+  .radio-wrap {
+    gap: 8px 12px;
+  }
+
+  .storage-note {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .empty-result {
+    min-height: 68px;
+    justify-content: flex-start;
+    gap: 12px;
+    border-radius: 16px;
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  .empty-result span {
+    font-size: 34px;
+  }
+
+  .empty-result p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .result-list {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .result-list__header {
+    gap: 8px;
+  }
+
+  .result-list__header > span {
+    font-size: 11px;
+    line-height: 1.5;
   }
 
   .button-row ::v-deep .el-button {
