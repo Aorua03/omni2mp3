@@ -1,4 +1,4 @@
-name: Build and test
+name: Build, test, and deploy
 
 on:
   push:
@@ -7,14 +7,14 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -44,3 +44,11 @@ jobs:
           VUE_APP_POSTHOG_HOST: ${{ vars.POSTHOG_HOST }}
           VUE_APP_ANALYTICS_ENV: production
         run: pnpm build
+
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          force_orphan: true
